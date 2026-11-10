@@ -1,4 +1,5 @@
 // TP1 MN2 -- application etudiante. Noms des trois membres : ...
+mprintf("Noms des trois membres : 1. NIOULA B. Dorcas; 2. OUARME Raïssa; 3. ZAGRE H. Weatherfield\n")
 // Placer ce fichier et TP_01_Outils_Quadrature.sce dans le meme dossier.
 clear;
 exec("TP_01_Outils_Quadrature.sce", -1);
@@ -49,3 +50,7 @@ mprintf("Ecart=%.6f kWh ; borne des lectures=%.6f kWh\n", ..
 
 // Dans le rapport : dire ce que les calculs permettent de conclure.
 // Ne pas deduire un ordre de convergence des cinq mesures de la pompe.
+// Controle CM1 : P(t) = 10 + 4t - T^2 aux temps 0..4 s
+tc = [0 1 2 3 4];
+Pc = 10 + 4*tc - tc.^2;
+mprintf("Contrôle : T4=%.6f J ; S4=%.6f J\n", trapezes(tc, Pc), simpson(tc, Pc));
